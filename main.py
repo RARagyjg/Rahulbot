@@ -33,7 +33,61 @@ def auto_reply():
 
                 try:
                     # ✉️ Reply to the same thread (GC or DM)
-                    cl.direct_answer(thread.id, "𝗧𝗘𝗥𝗜 𝗠𝗔 𝗞𝗜 𝗖𝗛#𝗧 𝗙𝗔𝗗 𝗗𝗨 𝗧𝗘𝗔𝗠 𝗗𝗘𝗩𝗜𝗟😂")
+                    cl.direct_answer(thread.id, """NICK KA BAAP RAHUL HU🖤
+
+
+
+
+
+
+
+
+NICK KI MAA NANGI KRDI🖤
+
+
+NICK CHOTE TATE TERI MA CHODUNGA🖤
+
+
+
+NICK APNI MA CHUDA KE MANEGA🖤
+
+
+
+
+
+
+NICK KI MA RAHUL KE LND PE H🖤
+
+
+
+
+
+
+
+
+NICK GRIB BHEEK DU BOL RNDI🖤
+
+
+
+
+
+
+
+
+
+
+
+NICK GRIB TERI MAA CHUDA MERE SE🖤
+
+
+
+
+
+
+
+
+
+NICK TERI MA CHOD KE PAISE DUNGA CHLEGA NA🖤""")
                     print(f"✔️ Replied to user {msg.user_id} in thread {thread.id}")
                     replied_msg_ids.add(msg.id)
 

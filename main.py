@@ -18,7 +18,7 @@ replied_msg_ids = set()
 
 def auto_reply():
     while True:
-        threads = cl.direct_threads(amount=1)
+        threads = cl.direct_threads(amount=10)
 
         for thread in threads:
             if not thread.messages:

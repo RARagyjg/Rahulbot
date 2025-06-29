@@ -43,7 +43,7 @@ def auto_reply():
             if not replied:
                 print("⌛ No new messages... waiting.")
 
-            time.sleep(30)  # Only checks every 30 sec (you can increase)
+            time.sleep(3)  # Only checks every 30 sec (you can increase)
 
         except Exception as e:
             print(f"⚠️ Error: {e}")

@@ -18,7 +18,7 @@ replied_msg_ids = set()
 
 def auto_reply():
     while True:
-        threads = cl.direct_threads(amount=5)
+        threads = cl.direct_threads(amount=10)
 
         for thread in threads:
             if not thread.messages:
@@ -33,46 +33,68 @@ def auto_reply():
 
                 try:
                     # ✉️ Reply to the same thread (GC or DM)
-                    cl.direct_answer(thread.id, """ ______________________________________________
-
-SHOTER_LAKDI__KI__KATHI__KATHI__PER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-SHOTER_LAKDI__KI__KATHI__KATHI__PER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-SHOTER_LAKDI__KI__KATHI__KATHI__PER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-SHOTER_LAKDI__KI__KATHI__KATHI__PER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-SHOTER_LAKDI__KI__KATHI__KATHI__PER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-SHOTER_LAKDI__KI__KATHI__KATHI__PER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-SHOTER_LAKDI__KI__KATHI__KATHI__PER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂 ͏ ͏
+                    cl.direct_answer(thread.id, """AJ TERYY MA KI CH00T FAD DUGA🖤
 
 
-😂 LAX_2KODI_KE_SASTE_SAPAMER_TMK🖖 
 
-😂 LAX_RANDI_CHUD🍌KE_BHG_MTT😂""")
+
+
+
+
+
+BHAG MATT TU BETE 🖤
+
+
+TU CHOTA TATTA H BETE🖤
+
+
+
+APNI MA CHUDA KE MANEGA🖤
+
+
+
+
+
+
+ TERI MA RAHUL KE LND PE H🖤
+
+
+
+
+
+
+
+
+ GRIB BHEEK DU BOL RNDI🖤
+
+
+
+
+
+
+
+
+
+
+
+ GRIB TERI MAA CHUDA MERE SE🖤
+
+
+
+
+
+
+
+
+
+TERI MA CHOD KE PAISE DUNGA CHLEGA NA🖤""")
                     print(f"✔️ Replied to user {msg.user_id} in thread {thread.id}")
                     replied_msg_ids.add(msg.id)
 
                 except Exception as e:
                     print(f"⚠️ Error replying to thread {thread.id}: {e}")
 
-        time.sleep(20)
+        time.sleep(25)
 
 auto_reply()
+                    

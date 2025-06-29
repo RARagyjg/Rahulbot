@@ -47,6 +47,6 @@ def auto_reply():
 
         except Exception as e:
             print(f"⚠️ Error: {e}")
-            time.sleep(60)
+            time.sleep(6)
 
 auto_reply()

@@ -38,15 +38,15 @@ def auto_reply():
                     print(f"✔️ Replied to @{sender_username}")
                     replied_msg_ids.add(msg.id)
                     replied = True
-                    time.sleep(random.randint(2, 4))
+                    time.sleep(random.randint(1, 1))
 
             if not replied:
                 print("⌛ No new messages... waiting.")
 
-            time.sleep(3)  # Only checks every 30 sec (you can increase)
+            time.sleep(0)  # Only checks every 30 sec (you can increase)
 
         except Exception as e:
             print(f"⚠️ Error: {e}")
-            time.sleep(3)
+            time.sleep(0)
 
 auto_reply()

@@ -33,7 +33,7 @@ def auto_reply():
                         continue
                     
                     sender_username = cl.user_info(msg.user_id).username
-                    reply_text = f"@{sender_username} Hi! I kese ho bhai 🤖"
+                    reply_text = f"@{sender_username} Tu mere l#nd pe h be 😂🤣 "
                     cl.direct_answer(thread.id, reply_text)
                     print(f"✔️ Replied to @{sender_username}")
                     replied_msg_ids.add(msg.id)
@@ -47,6 +47,6 @@ def auto_reply():
 
         except Exception as e:
             print(f"⚠️ Error: {e}")
-            time.sleep(6)
+            time.sleep(3)
 
 auto_reply()

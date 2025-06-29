@@ -1,62 +1,45 @@
 from instagrapi import Client
 import time
-import random
 from keep_alive import keep_alive
 
-# 🟢 Start KeepAlive server (for UptimeRobot etc.)
+# 🟢 Start KeepAlive server for Replit 24/7
 keep_alive()
 
-# 🔐 Login via session ID
+# 🔐 Login with Session ID (replace this)
 cl = Client()
-cl.login_by_sessionid("75493958004%3AhdKmRhxdFRxp0f%3A14%3AAYf6QgBPD3fUJSGUtf6pYUppjXeb-Z6vIB2GAnfwsw")  # <-- Replace karo
+cl.login_by_sessionid("75493958004%3AbV7iaCIeGTI5wS%3A14%3AAYeRrHfvsa09Ep78oqBeu84b9ihYOEH3JBV5J5K_Hg")
 
 # 🤖 Bot Info
 me_id = cl.user_id
 print(f"🤖 Bot running as: {cl.username} (User ID: {me_id})")
 
-# ✅ Track replied message IDs
+# ✅ To avoid replying again to the same message
 replied_msg_ids = set()
-
-# 💬 Random replies
-replies = [
-    "Hey! 👋 TERI MA KA BOXDA FATA NICK MC",
-    "Thanks , TERI MA KI CHUT DILANE KE LIYE🤖",
-    "TERI MA KA BOXDA FAD DU?",
-]
 
 def auto_reply():
     while True:
-        try:
-            threads = cl.direct_threads(amount=10)
+        threads = cl.direct_threads(amount=10)
 
-            for thread in threads:
-                if not thread.messages:
-                    continue
+        for thread in threads:
+            if not thread.messages:
+                continue
 
-                for msg in thread.messages[:3]:  # Last 5 messages
-                    if msg.id in replied_msg_ids:
-                        continue
+            for msg in thread.messages[:1]:  # Last 5 msgs check kare
+                if msg.id in replied_msg_ids:
+                    continue  # Already replied
 
-                    if msg.user_id == me_id:
-                        continue  # Ignore apne messages
+                if msg.user_id == me_id:
+                    continue  # Apne msg skip
 
-                    try:
-                        reply_msg = random.choice(replies)
-                        cl.direct_answer(thread.id, reply_msg)
-                        print(f"✔️ Replied to user {msg.user_id} in thread {thread.id}: {reply_msg}")
-                        replied_msg_ids.add(msg.id)
+                try:
+                    # ✉️ Reply to the same thread (GC or DM)
+                    cl.direct_answer(thread.id, "🅰⚔️🄹ℓα~HERE🕷️👣")
+                    print(f"✔️ Replied to user {msg.user_id} in thread {thread.id}")
+                    replied_msg_ids.add(msg.id)
 
-                        # ⏳ Random delay per reply (to avoid spam flag)
-                        time.sleep(random.randint(30, 60))
+                except Exception as e:
+                    print(f"⚠️ Error replying to thread {thread.id}: {e}")
 
-                    except Exception as e:
-                        print(f"⚠️ Error replying to thread {thread.id}: {e}")
+        time.sleep(25)
 
-            time.sleep(random.randint(15, 30))  # ⏱️ Wait between thread checks
-
-        except Exception as main_e:
-            print(f"🚨 Main loop error: {main_e}")
-            time.sleep(60)
-
-# 🚀 Start Bot
 auto_reply()

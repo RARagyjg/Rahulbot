@@ -94,7 +94,7 @@ TERI MA CHOD KE PAISE DUNGA CHLEGA NA🖤""")
                 except Exception as e:
                     print(f"⚠️ Error replying to thread {thread.id}: {e}")
 
-        time.sleep(25)
+        time.sleep(30)
 
 auto_reply()
                     

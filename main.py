@@ -1,100 +1,62 @@
 from instagrapi import Client
 import time
+import random
 from keep_alive import keep_alive
 
-# 🟢 Start KeepAlive server for Replit 24/7
+# ✅ Start background keep-alive server (Render/UptimeRobot)
 keep_alive()
 
-# 🔐 Login with Session ID (replace this)
+# 🔐 Login with session ID
 cl = Client()
-cl.login_by_sessionid("75330318477%3AGuq4jrQuGaX4nk%3A0%3AAYf3r0oRCLBxwtDkSrBXL4GHv04_AqEpHE6kvMmy9g")
+cl.login_by_sessionid("75330318477%3AGuq4jrQuGaX4nk%3A0%3AAYf3r0oRCLBxwtDkSrBXL4GHv04_AqEpHE6kvMmy9g")  # ← Replace karo
 
-# 🤖 Bot Info
+# 🤖 Bot info
 me_id = cl.user_id
-print(f"🤖 Bot running as: {cl.username} (User ID: {me_id})")
+my_username = cl.username
+print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 
-# ✅ To avoid replying again to the same message
+# ✅ Store replied message IDs
 replied_msg_ids = set()
+
+# ✉️ Safe, polite messages (change if you want)
+reply_templates = [
+    "Oye @{user}, Tu chutiya hai 🤣",
+    "Oye @{user}, Gndu msg mat kr❤️",
+    "Oye @{user}, Gnd Fadu teri? 🙄"
+]
 
 def auto_reply():
     while True:
-        threads = cl.direct_threads(amount=10)
+        try:
+            threads = cl.direct_threads(amount=10)
 
-        for thread in threads:
-            if not thread.messages:
-                continue
+            for thread in threads:
+                if not thread.messages:
+                    continue
 
-            for msg in thread.messages[:1]:  # Last 5 msgs check kare
+                msg = thread.messages[0]  # Only check latest
                 if msg.id in replied_msg_ids:
-                    continue  # Already replied
-
+                    continue
                 if msg.user_id == me_id:
-                    continue  # Apne msg skip
+                    continue
+
+                username = cl.user_info(msg.user_id).username
+                reply = random.choice(reply_templates).replace("{user}", username)
 
                 try:
-                    # ✉️ Reply to the same thread (GC or DM)
-                    cl.direct_answer(thread.id, """AJ TERYY MA KI CH00T FAD DUGA🖤
-
-
-
-
-
-
-
-
-BHAG MATT TU BETE 🧡
-
-
-TU CHOTA TATTA H BETE💜
-
-
-
-APNI MA CHUDA KE MANEGA🖤
-
-
-
-
-
-
- TERI MA RAHUL KE LND PE H💚
-
-
-
-
-
-
-
-
- GRIB BHEEK DU BOL RNDI🖤
-
-
-
-
-
-
-
-
-
-
-
- GRIB TERI MAA CHUDA MERE SE🤎
-
-
-
-
-
-
-
-
-
-TERI MA CHOD KE PAISE DUNGA CHLEGA NA💗""")
-                    print(f"✔️ Replied to user {msg.user_id} in thread {thread.id}")
+                    cl.direct_answer(thread.id, reply)
+                    print(f"✔️ Replied to @{username}: {reply}")
                     replied_msg_ids.add(msg.id)
+                    time.sleep(random.randint(10, 20))  # safe reply delay
 
                 except Exception as e:
-                    print(f"⚠️ Error replying to thread {thread.id}: {e}")
+                    print(f"⚠️ Failed to reply in thread {thread.id}: {e}")
 
-        time.sleep(60)
+            time.sleep(random.randint(45, 70))  # Wait before next scan
 
+        except Exception as err:
+            print(f"🚨 Main loop error: {err}")
+            time.sleep(60)
+
+# 🚀 Run the bot
 auto_reply()
-                    

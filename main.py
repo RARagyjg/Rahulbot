@@ -7,7 +7,7 @@ keep_alive()
 
 # 🔐 Login with Session ID (replace this)
 cl = Client()
-cl.login_by_sessionid("70016257168%3AsgDuSEYn9wnAaw%3A18%3AAYel_THXhEI1uY0OjGNCLfVuyBHG4QFW8dx8LAunUA")
+cl.login_by_sessionid("75330318477%3AGuq4jrQuGaX4nk%3A0%3AAYf3r0oRCLBxwtDkSrBXL4GHv04_AqEpHE6kvMmy9g")
 
 # 🤖 Bot Info
 me_id = cl.user_id
@@ -94,7 +94,7 @@ TERI MA CHOD KE PAISE DUNGA CHLEGA NA🖤""")
                 except Exception as e:
                     print(f"⚠️ Error replying to thread {thread.id}: {e}")
 
-        time.sleep(30)
+        time.sleep(40)
 
 auto_reply()
                     

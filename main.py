@@ -3,27 +3,38 @@ import time
 import random
 from keep_alive import keep_alive
 
-# ✅ Start background keep-alive server (Render/UptimeRobot)
 keep_alive()
 
-# 🔐 Login with session ID
 cl = Client()
-cl.login_by_sessionid("75330318477%3AGuq4jrQuGaX4nk%3A0%3AAYf3r0oRCLBxwtDkSrBXL4GHv04_AqEpHE6kvMmy9g")  # ← Replace karo
+cl.login_by_sessionid("75330318477%3AGuq4jrQuGaX4nk%3A0%3AAYf3r0oRCLBxwtDkSrBXL4GHv04_AqEpHE6kvMmy9g")  # 🔐 Apna session ID daalo
 
-# 🤖 Bot info
 me_id = cl.user_id
 my_username = cl.username
 print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 
-# ✅ Store replied message IDs
-replied_msg_ids = set()
-
-# ✉️ Safe, polite messages (change if you want)
-reply_templates = [
-    "Oye @{user}, Tu chutiya hai 🤣",
-    "Oye @{user}, Gndu msg mat kr❤️",
-    "Oye @{user}, Gnd Fadu teri? 🙄"
+# ✅ Message reply templates (edit if you want)
+reply_templates_master = [
+    "Oye @{user}, Lnd ke baal 😂",
+    "Sun @{user}, Chutiya h tu 😜",
+    "Oye @{user}, kya be gandu ! 👀",
+    "@{user} lund lega? 😎",
+    "Oye @{user}, Bhk chut1ye 😁"
 ]
+
+# 🧠 Maintain last message replied for each user
+last_msg_id_by_user = {}
+
+def get_next_reply(username, history):
+    # Filter replies jo already iss user ko bheje gaye ho
+    possible_replies = [r for r in reply_templates_master if r not in history]
+    if not possible_replies:
+        history.clear()
+        possible_replies = reply_templates_master.copy()
+    reply = random.choice(possible_replies)
+    history.add(reply)
+    return reply.replace("{user}", username)
+
+user_reply_history = {}
 
 def auto_reply():
     while True:
@@ -34,29 +45,39 @@ def auto_reply():
                 if not thread.messages:
                     continue
 
-                msg = thread.messages[0]  # Only check latest
-                if msg.id in replied_msg_ids:
-                    continue
-                if msg.user_id == me_id:
+                latest_msg = thread.messages[0]
+
+                # Apna msg ignore karo
+                if latest_msg.user_id == me_id:
                     continue
 
-                username = cl.user_info(msg.user_id).username
-                reply = random.choice(reply_templates).replace("{user}", username)
+                user_id = latest_msg.user_id
+                username = cl.user_info(user_id).username
+
+                # Agar same msg pe already reply kar chuke ho, skip karo
+                if last_msg_id_by_user.get(user_id) == latest_msg.id:
+                    continue
+
+                # User history init if not exists
+                if user_id not in user_reply_history:
+                    user_reply_history[user_id] = set()
+
+                # 📨 Generate new random reply
+                reply = get_next_reply(username, user_reply_history[user_id])
 
                 try:
                     cl.direct_answer(thread.id, reply)
                     print(f"✔️ Replied to @{username}: {reply}")
-                    replied_msg_ids.add(msg.id)
-                    time.sleep(random.randint(10, 20))  # safe reply delay
-
+                    last_msg_id_by_user[user_id] = latest_msg.id
+                    time.sleep(random.randint(8, 14))
                 except Exception as e:
                     print(f"⚠️ Failed to reply in thread {thread.id}: {e}")
 
-            time.sleep(random.randint(45, 70))  # Wait before next scan
+            time.sleep(random.randint(30, 60))
 
         except Exception as err:
             print(f"🚨 Main loop error: {err}")
             time.sleep(60)
 
-# 🚀 Run the bot
+# 🚀 Start bot
 auto_reply()

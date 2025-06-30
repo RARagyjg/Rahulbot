@@ -42,10 +42,10 @@ def auto_reply():
 
 
 
-BHAG MATT TU BETE 🖤
+BHAG MATT TU BETE 🧡
 
 
-TU CHOTA TATTA H BETE🖤
+TU CHOTA TATTA H BETE💜
 
 
 
@@ -56,7 +56,7 @@ APNI MA CHUDA KE MANEGA🖤
 
 
 
- TERI MA RAHUL KE LND PE H🖤
+ TERI MA RAHUL KE LND PE H💚
 
 
 
@@ -77,7 +77,7 @@ APNI MA CHUDA KE MANEGA🖤
 
 
 
- GRIB TERI MAA CHUDA MERE SE🖤
+ GRIB TERI MAA CHUDA MERE SE🤎
 
 
 
@@ -87,7 +87,7 @@ APNI MA CHUDA KE MANEGA🖤
 
 
 
-TERI MA CHOD KE PAISE DUNGA CHLEGA NA🖤""")
+TERI MA CHOD KE PAISE DUNGA CHLEGA NA💗""")
                     print(f"✔️ Replied to user {msg.user_id} in thread {thread.id}")
                     replied_msg_ids.add(msg.id)
 

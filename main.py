@@ -77,7 +77,7 @@ def auto_reply():
 
         except Exception as err:
             print(f"🚨 Main loop error: {err}")
-            time.sleep(60)
+            time.sleep(25)
 
 # 🚀 Start bot
 auto_reply()

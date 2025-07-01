@@ -65,7 +65,7 @@ def auto_reply():
                 except Exception as e:
                     print(f"⚠️ Failed to reply in thread {thread.id}: {e}")
 
-            time.sleep(random.randint(30, 60))
+            time.sleep(random.randint(10, 40))
 
         except Exception as err:
             print(f"🚨 Main loop error: {err}")

@@ -6,7 +6,7 @@ from keep_alive import keep_alive
 keep_alive()
 
 cl = Client()
-cl.login_by_sessionid("CCO\05475330318477\0541782914986:01fea4fe55d22b3c36b17411654f64f994d62709386f3749a5a91a5837c1de21e66c2ff2")  # 🔐 Apna session ID daalo
+cl.login_by_sessionid("75330318477%3At7SsQO42IQwkr0%3A22%3AAYe8hUmcIh6rIl_56BXa9bVcvH0MAnO6m1AcHbCE8Q")  # 🔐 Apna session ID daalo
 
 me_id = cl.user_id
 my_username = cl.username

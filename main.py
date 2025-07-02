@@ -6,15 +6,14 @@ from keep_alive import keep_alive
 keep_alive()
 
 cl = Client()
-cl.login_by_sessionid("75330318477%3AHu5fuxTOngcixl%3A11%3AAYdN5gcDKa0N9sV90Sa1X8Vl_uycGbMmGZSDWHudew")  # 🔐 Replace with your real session ID
+cl.login_by_sessionid("75330318477%3AHu5fuxTOngcixl%3A11%3AAYdN5gcDKa0N9sV90Sa1X8Vl_uycGbMmGZSDWHudew")  # <-- 🔐 Replace with your session ID
 
 me_id = cl.user_id
 my_username = cl.username
 print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 
-# ✅ Friendly reply templates
 reply_templates = [
-    """ 𝐍𝐈𝐂𝐊 𝐊𝐈 𝐌𝐔𝐌𝐌𝐘 𝐊𝐈 𝐁𝐇𝐎𝐒𝐃𝐈 𝐁𝐀𝐇𝐔𝐓 𝐁𝐀𝐃𝐁𝐔 𝐌𝐀𝐑𝐓𝐈 𝐇__________________________________________________/
+   """𝐍𝐈𝐂𝐊 𝐊𝐈 𝐌𝐔𝐌𝐌𝐘 𝐊𝐈 𝐁𝐇𝐎𝐒𝐃𝐈 𝐁𝐀𝐇𝐔𝐓 𝐁𝐀𝐃𝐁𝐔 𝐌𝐀𝐑𝐓𝐈 𝐇__________________________________________________/
 𝐍𝐈𝐂𝐊 𝐊𝐈 𝐊𝐔𝐖𝐀𝐑𝐈 𝐁𝐇𝐄𝐍 𝐊𝐀 𝐀𝐒𝐒 𝐇𝐎𝐋𝐄 𝐁𝐀𝐇𝐔𝐓 𝐓𝐈𝐆𝐇𝐓 𝐇_________________________________________________/
 𝐍𝐈𝐂𝐊 𝐊𝐈 𝐌𝐔𝐌𝐌𝐘 𝐊𝐈 𝐁𝐇𝐎𝐒𝐃𝐈 𝐁𝐀𝐇𝐔𝐓 𝐁𝐀𝐃𝐁𝐔 𝐌𝐀𝐑𝐓𝐈 𝐇__________________________________________________/
 𝐍𝐈𝐂𝐊 𝐊𝐈 𝐊𝐔𝐖𝐀𝐑𝐈 𝐁𝐇𝐄𝐍 𝐊𝐀 𝐀𝐒𝐒 𝐇𝐎𝐋𝐄 𝐁𝐀𝐇𝐔𝐓 𝐓𝐈𝐆𝐇𝐓 𝐇_________________________________________________/
@@ -40,63 +39,43 @@ reply_templates = [
 𝗡𝗜𝗖𝗞 𝗞𝗜 𝗕𝗛𝗘𝗡 𝗢𝗬𝗢 𝗠𝗘 𝗥𝗢𝗭 𝗠𝗔𝗥𝗪𝗔𝗧𝗜___________________________________________/"""
 ]
 
-# 🧠 Avoid repeating replies
-last_msg_id_by_user = {}
-user_reply_history = {}
-
-def get_next_reply(username, history):
-    available = [r for r in reply_templates if r not in history]
-    if not available:
-        history.clear()
-        available = reply_templates.copy()
-    reply = random.choice(available)
-    history.add(reply)
-    return reply
+last_msg_id = None
 
 def auto_reply():
-    gc_thread_id = None  # Optional: set a specific group chat ID if known
-
+    global last_msg_id
     while True:
         try:
-            threads = cl.direct_threads(amount=5)  # Lower amount for less load
+            # 🔍 Get latest threads (group chats included)
+            threads = cl.direct_threads(amount=5)
 
-            for thread in threads:
-                if gc_thread_id and thread.id != gc_thread_id:
-                    continue  # Skip if not the specific GC
+            # 🔝 Pick first thread which is a group chat
+            thread = next((t for t in threads if len(t.users) > 2), None)
 
-                if not thread.messages:
-                    continue
+            if not thread:
+                print("❌ No group chats found.")
+                time.sleep(30)
+                continue
 
-                latest_msg = thread.messages[0]
+            if not thread.messages:
+                continue
 
-                if latest_msg.user_id == me_id:
-                    continue
+            latest_msg = thread.messages[0]
 
-                user_id = latest_msg.user_id
-                username = cl.user_info(user_id).username
+            if latest_msg.user_id == me_id:
+                continue
 
-                if last_msg_id_by_user.get(user_id) == latest_msg.id:
-                    continue
+            if latest_msg.id == last_msg_id:
+                continue
 
-                if user_id not in user_reply_history:
-                    user_reply_history[user_id] = set()
+            reply = random.choice(reply_templates)
+            cl.direct_answer(thread.id, reply)
+            print(f"✔️ Replied to GC '{thread.thread_title}': {reply}")
+            last_msg_id = latest_msg.id
 
-                reply = get_next_reply(username, user_reply_history[user_id])
+            time.sleep(random.randint(25, 45))  # ⏱️ Safe interval
 
-                try:
-                    cl.direct_answer(thread.id, reply)
-                    print(f"✔️ Replied to @{username}: {reply}")
-                    last_msg_id_by_user[user_id] = latest_msg.id
-                    time.sleep(random.randint(20, 40))  # Slower to avoid ban
-                except Exception as e:
-                    print(f"⚠️ Failed to reply to @{username}: {e}")
-                    time.sleep(random.randint(60, 120))
+        except Exception as e:
+            print(f"⚠️ Error: {e}")
+            time.sleep(random.randint(60, 90))
 
-            time.sleep(random.randint(60, 120))
-
-        except Exception as err:
-            print(f"🚨 Main loop error: {err}")
-            time.sleep(random.randint(120, 180))
-
-# 🚀 Start bot
 auto_reply()

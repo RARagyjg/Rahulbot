@@ -50,7 +50,7 @@ user_reply_history = {}
 def auto_reply():
     while True:
         try:
-            threads = cl.direct_threads(amount=5)
+            threads = cl.direct_threads(amount=1)
 
             for thread in threads:
                 if not thread.messages:

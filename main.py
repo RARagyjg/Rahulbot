@@ -80,15 +80,15 @@ def auto_reply():
                     cl.direct_answer(thread.id, reply)
                     print(f"✔️ Replied to @{username}: {reply}")
                     last_msg_id_by_user[user_id] = latest_msg.id
-                    time.sleep(random.randint(25, 45))
+                    time.sleep(random.randint(12, 22))
                 except Exception as e:
                     print(f"⚠️ Failed to reply in thread {thread.id}: {e}")
 
-            time.sleep(random.randint(25, 45))
+            time.sleep(random.randint(11, 21))
 
         except Exception as err:
             print(f"🚨 Main loop error: {err}")
-            time.sleep(random.randint(60, 90))
+            time.sleep(random.randint(10, 20))
 
 # 🚀 Start bot
 auto_reply()

@@ -26,7 +26,19 @@ if gc_thread_id:
     while True:
         try:
             unique_id = uuid.uuid4().hex[:8]  # Short random ID
-            message = f"NICK TERYYY MA KA BOXDA FADUGAAAA___//////NICK TERYYY MA KA BOXDA FADUGAAAA___/////NICK TERYYY MA KA BOXDA FADUGAAAA___/////NICK TERYYY MA KA BOXDA FADUGAAAA___/////NICK TERYYY MA KA BOXDA FADUGAAAA___/////NICK TERYYY MA KA BOXDA FADUGAAAA___///// \n\nID: {unique_id}"
+            message = f"""𝐒𝐔𝐁𝐇𝐀𝐍𝐒 ➪𝗞𝗔𝗠𝗝𝗢𝗥 𝗕𝗔𝗔𝗣 𝗞𝗜 𝗞𝗔𝗠𝗝𝗢𝗥 𝗔𝗨𝗟𝗔𝗗 𝗧𝗘𝗥𝗜𝗜𝗜 𝗠𝗔𝗔𝗔𝗔 𝗞𝗜 𝗖𝗛𝗨𝗧𝗧𝗧𝗧 𝗙𝗔𝗔𝗗𝗗𝗗𝗗 𝗗𝗨𝗚𝗔𝗔𝗔𝗔
+
+✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎
+𝐒𝐔𝐁𝐇𝐀𝐍𝐒 ➪𝗞𝗔𝗠𝗝𝗢𝗥 𝗕𝗔𝗔𝗣 𝗞𝗜 𝗞𝗔𝗠𝗝𝗢𝗥 𝗔𝗨𝗟𝗔𝗗 𝗧𝗘𝗥𝗜𝗜𝗜 𝗠𝗔𝗔𝗔𝗔 𝗞𝗜 𝗖𝗛𝗨𝗧𝗧𝗧𝗧 𝗙𝗔𝗔𝗗𝗗𝗗𝗗 𝗗𝗨𝗚𝗔𝗔𝗔𝗔
+
+✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎
+𝐒𝐔𝐁𝐇𝐀𝐍𝐒 ➪𝗞𝗔𝗠𝗝𝗢𝗥 𝗕𝗔𝗔𝗣 𝗞𝗜 𝗞𝗔𝗠𝗝𝗢𝗥 𝗔𝗨𝗟𝗔𝗗 𝗧𝗘𝗥𝗜𝗜𝗜 𝗠𝗔𝗔𝗔𝗔 𝗞𝗜 𝗖𝗛𝗨𝗧𝗧𝗧𝗧 𝗙𝗔𝗔𝗗𝗗𝗗𝗗 𝗗𝗨𝗚𝗔𝗔𝗔𝗔
+
+✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎
+𝐒𝐔𝐁𝐇𝐀𝐍𝐒 ➪𝗞𝗔𝗠𝗝𝗢𝗥 𝗕𝗔𝗔𝗣 𝗞𝗜 𝗞𝗔𝗠𝗝𝗢𝗥 𝗔𝗨𝗟𝗔𝗗 𝗧𝗘𝗥𝗜𝗜𝗜 𝗠𝗔𝗔𝗔𝗔 𝗞𝗜 𝗖𝗛𝗨𝗧𝗧𝗧𝗧 𝗙𝗔𝗔𝗗𝗗𝗗𝗗 𝗗𝗨𝗚𝗔𝗔𝗔𝗔
+
+✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎✿︎
+𝐒𝐔𝐁𝐇𝐀𝐍𝐒 ➪𝗞𝗔𝗠𝗝𝗢𝗥 𝗕𝗔𝗔𝗣 𝗞𝗜 𝗞𝗔𝗠𝗝𝗢𝗥 𝗔𝗨𝗟𝗔𝗗 𝗧𝗘𝗥𝗜𝗜𝗜 𝗠𝗔𝗔𝗔𝗔 𝗞𝗜 𝗖𝗛𝗨𝗧𝗧𝗧𝗧 𝗙𝗔𝗔𝗗𝗗𝗗𝗗 𝗗𝗨𝗚𝗔𝗔𝗔𝗔 \n\nID: {unique_id}"""
             cl.direct_answer(gc_thread_id, message)
             print(f"✔️ Sent: {message}")
             time.sleep(random.randint(10, 20))  # Safe delay

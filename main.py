@@ -1,3 +1,6 @@
+from keep_alive import keep_alive
+keep_alive()
+
 from instagrapi import Client
 import time
 import random

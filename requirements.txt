@@ -1,4 +1,4 @@
---upgrade
+
 instagrapi==1.16.3
 flask
 Pillow>=8.1.1

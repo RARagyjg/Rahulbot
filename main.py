@@ -26,7 +26,7 @@ spamming = False
 
 # 🔍 Get GC ID
 def get_gc_id():
-    threads = cl.direct_threads(amount=1)
+    threads = cl.direct_threads(amount=10)
     for thread in threads:
         if thread.is_group:
             return thread.id

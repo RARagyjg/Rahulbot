@@ -4,12 +4,12 @@ import random
 import uuid
 import threading
 from keep_alive import keep_alive
-from telegram import Bot, Update
-from telegram.ext import Updater, CommandHandler, CallbackContext
+from telegram import Update
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # =================== CONFIG ===================
 TELEGRAM_BOT_TOKEN = "8054752328:AAHW91DOipkoYVHVZuOBB5VId_DB9OTjRCw"
-TELEGRAM_USER_ID = 8054752328 # Your Telegram ID (no quotes)
+TELEGRAM_USER_ID = 8054752328  # Your Telegram ID (no quotes)
 INSTAGRAM_SESSION_ID = "70186756947%3A1xUHrnycRpNIUj%3A18%3AAYcqUE-KLgHboplrwV_1GJDaH0kGQeWpZjbfehXu0A"
 # ==============================================
 
@@ -19,9 +19,6 @@ keep_alive()
 # 📲 Setup Instagram
 cl = Client()
 cl.login_by_sessionid(INSTAGRAM_SESSION_ID)
-
-# 🤖 Setup Telegram Bot
-bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
 # 🔁 GC Thread ID holder
 gc_thread_id = None
@@ -64,32 +61,37 @@ def spam_loop():
             time.sleep(60)
 
 # 🎮 Telegram Commands
-def startspam(update: Update, context: CallbackContext):
+async def startspam(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global spamming, gc_thread_id
     if update.effective_user.id != TELEGRAM_USER_ID:
         return
+
     if not gc_thread_id:
         gc_thread_id = get_gc_id()
+
     if not gc_thread_id:
-        bot.send_message(chat_id=TELEGRAM_USER_ID, text="❌ GC not found.")
+        await context.bot.send_message(chat_id=TELEGRAM_USER_ID, text="❌ GC not found.")
         return
+
     if not spamming:
         spamming = True
         threading.Thread(target=spam_loop).start()
-        bot.send_message(chat_id=TELEGRAM_USER_ID, text="🚀 Started spamming with long messages!")
+        await context.bot.send_message(chat_id=TELEGRAM_USER_ID, text="🚀 Started spamming with long messages!")
     else:
-        bot.send_message(chat_id=TELEGRAM_USER_ID, text="⚠️ Already spamming!")
+        await context.bot.send_message(chat_id=TELEGRAM_USER_ID, text="⚠️ Already spamming!")
 
-def stopspam(update: Update, context: CallbackContext):
+async def stopspam(update: Update, context: ContextTypes.DEFAULT_TYPE):
     global spamming
     if update.effective_user.id != TELEGRAM_USER_ID:
         return
+
     spamming = False
-    bot.send_message(chat_id=TELEGRAM_USER_ID, text="🛑 Stopped spamming.")
+    await context.bot.send_message(chat_id=TELEGRAM_USER_ID, text="🛑 Stopped spamming.")
 
 # 🛠️ Telegram Bot Setup
-updater = Updater(token=TELEGRAM_BOT_TOKEN)
-dp = updater.dispatcher
-dp.add_handler(CommandHandler("startspam", startspam))
-dp.add_handler(CommandHandler("stopspam", stopspam))
-updater.start_polling()
+app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
+app.add_handler(CommandHandler("startspam", startspam))
+app.add_handler(CommandHandler("stopspam", stopspam))
+
+print("✅ Bot is running...")
+app.run_polling()

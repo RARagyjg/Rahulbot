@@ -1,2 +1,15 @@
+[tool.poetry]
+name = "rahulbot"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
 [tool.poetry.dependencies]
 python = "3.10.13"
+python-telegram-bot = "^20.0"  # ya jo bhi tera telegram lib version ho
+aiohttp = "*"
+# yahan aur dependencies add kar sakta hai agar koi aur chahiye ho
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

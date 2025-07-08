@@ -9,8 +9,7 @@ from telegram.ext import Updater, CommandHandler, CallbackContext
 
 # =================== CONFIG ===================
 TELEGRAM_BOT_TOKEN = "8054752328:AAHW91DOipkoYVHVZuOBB5VId_DB9OTjRCw"
-TELEGRAM_USER_ID = me 
-8054752328 # Your Telegram ID (no quotes)
+TELEGRAM_USER_ID = 8054752328 # Your Telegram ID (no quotes)
 INSTAGRAM_SESSION_ID = "70186756947%3A1xUHrnycRpNIUj%3A18%3AAYcqUE-KLgHboplrwV_1GJDaH0kGQeWpZjbfehXu0A"
 # ==============================================
 

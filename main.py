@@ -19,11 +19,11 @@ hearts = ["❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "�
 
 # ✅ Message reply templates
 reply_templates_master = [
-    """𝐍𝐈𝐂𝐊 𝐊𝐈 𝐌𝐔𝐌𝐌𝐘 𝐊𝐈 𝐁𝐇𝐎𝐒𝐃𝐈 UID:{uid} 𝐁𝐀𝐇𝐔𝐓 𝐁𝐀𝐃𝐁𝐔 𝐌𝐀𝐑𝐓𝐈 𝐇 {emojis} [{time}]
-𝐍𝐈𝐂𝐊 𝐊𝐈 𝐊𝐔𝐖𝐀𝐑𝐈 𝐁𝐇𝐄𝐍 𝐊𝐀 𝐀𝐒𝐒 𝐇𝐎𝐋𝐄 𝐁𝐀𝐇𝐔𝐓 𝐓𝐈𝐆𝐇𝐓 𝐇 UID:{uid} {emojis} [{time}]""",
+    """BLACK 𝐊𝐈 𝐌𝐔𝐌𝐌𝐘 𝐊𝐈 𝐁𝐇𝐎𝐒𝐃𝐈 UID:{uid} CHODUGA {emojis} [{time}]
+BLACK 𝐊𝐈 𝐊𝐔𝐖𝐀𝐑𝐈 𝐁𝐇𝐄𝐍 𝐊𝐀 𝐀𝐒𝐒 𝐇𝐎𝐋𝐄 𝐁𝐀𝐇𝐔𝐓 𝐓𝐈𝐆𝐇𝐓 𝐇 UID:{uid} {emojis} [{time}]""",
 
-    """𝗡𝗜𝗖𝗞 𝗧𝗘𝗥𝗜 𝟭𝟱 𝗦𝗔𝗔𝗟 𝗞𝗜 𝗕𝗛𝗘𝗡 UID:{uid} 𝗞𝗢 𝗥𝗢𝗭 𝗠𝗘 𝗢𝗬𝗢 𝗠𝗘 𝗟𝗘𝗝𝗔𝗞𝗔𝗥 𝟰 𝗚𝗛𝗔𝗡𝗧𝗘 𝗖𝗛#𝗢𝗗𝗧𝗔 𝗛𝗨 {emojis} [{time}]
-𝗡𝗜𝗖𝗞 𝗞𝗜 𝗕𝗛𝗘𝗡 𝗢𝗬𝗢 𝗠𝗘 𝗥𝗢𝗭 𝗠𝗔𝗥𝗪𝗔𝗧𝗜 UID:{uid} {emojis} [{time}]"""
+    """BLACK 𝗧𝗘𝗥𝗜 𝟭𝟱 𝗦𝗔𝗔𝗟 𝗞𝗜 𝗕𝗛𝗘𝗡 UID:{uid} 𝗞𝗢 𝗥𝗢𝗭 𝗠𝗘 𝗢𝗬𝗢 𝗠𝗘 𝗟𝗘𝗝𝗔𝗞𝗔𝗥 𝟰 𝗚𝗛𝗔𝗡𝗧𝗘 𝗖𝗛#𝗢𝗗𝗧𝗔 𝗛𝗨 {emojis} [{time}]
+BLACK 𝗞𝗜 𝗕𝗛𝗘𝗡 𝗢𝗬𝗢 𝗠𝗘 𝗥𝗢𝗭 𝗠𝗔𝗥𝗪𝗔𝗧𝗜 UID:{uid} {emojis} [{time}]"""
 ]
 
 last_msg_id_by_user = {}

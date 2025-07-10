@@ -2,93 +2,91 @@ from instagrapi import Client
 import time
 import random
 import uuid
-import threading
+from datetime import datetime
 from keep_alive import keep_alive
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-# =================== CONFIG ===================
-TELEGRAM_BOT_TOKEN = "8054752328:AAHW91DOipkoYVHVZuOBB5VId_DB9OTjRCw"
-TELEGRAM_USER_ID = 8054752328  # Tera Telegram ID
-INSTAGRAM_SESSION_ID = "70186756947%3A1xUHrnycRpNIUj%3A18%3AAYcqUE-KLgHboplrwV_1GJDaH0kGQeWpZjbfehXu0A"
-# ==============================================
-
-# 🌐 Start web server for Render
 keep_alive()
 
-# 📲 Setup Instagram
 cl = Client()
-cl.login_by_sessionid(INSTAGRAM_SESSION_ID)
-print(f"✅ Logged in IG as: {cl.user_id}")
+cl.login_by_sessionid("70186756947%3A1xUHrnycRpNIUj%3A18%3AAYeQTvXThYFKFZY12jDg6kJAspRCSfYBarfP8Aq68A")
 
-# 🔁 GC Thread ID holder
-gc_thread_id = None
-spamming = False
+me_id = cl.user_id
+my_username = cl.username
+print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 
-# 🔍 Get GC ID
-def get_gc_id():
-    threads = cl.direct_threads(amount=1)
-    for thread in threads:
-        if thread.is_group:
-            return thread.id
-    return None
+# 🔥 Heart emojis
+hearts = ["❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎"]
 
-# 📩 Spam Loop
-def spam_loop():
-    global spamming
-    while spamming:
+# ✅ Message reply templates
+reply_templates_master = [
+    """𝐍𝐈𝐂𝐊 𝐊𝐈 𝐌𝐔𝐌𝐌𝐘 𝐊𝐈 𝐁𝐇𝐎𝐒𝐃𝐈 UID:{uid} 𝐁𝐀𝐇𝐔𝐓 𝐁𝐀𝐃𝐁𝐔 𝐌𝐀𝐑𝐓𝐈 𝐇 {emojis} [{time}]
+𝐍𝐈𝐂𝐊 𝐊𝐈 𝐊𝐔𝐖𝐀𝐑𝐈 𝐁𝐇𝐄𝐍 𝐊𝐀 𝐀𝐒𝐒 𝐇𝐎𝐋𝐄 𝐁𝐀𝐇𝐔𝐓 𝐓𝐈𝐆𝐇𝐓 𝐇 UID:{uid} {emojis} [{time}]""",
+
+    """𝗡𝗜𝗖𝗞 𝗧𝗘𝗥𝗜 𝟭𝟱 𝗦𝗔𝗔𝗟 𝗞𝗜 𝗕𝗛𝗘𝗡 UID:{uid} 𝗞𝗢 𝗥𝗢𝗭 𝗠𝗘 𝗢𝗬𝗢 𝗠𝗘 𝗟𝗘𝗝𝗔𝗞𝗔𝗥 𝟰 𝗚𝗛𝗔𝗡𝗧𝗘 𝗖𝗛#𝗢𝗗𝗧𝗔 𝗛𝗨 {emojis} [{time}]
+𝗡𝗜𝗖𝗞 𝗞𝗜 𝗕𝗛𝗘𝗡 𝗢𝗬𝗢 𝗠𝗘 𝗥𝗢𝗭 𝗠𝗔𝗥𝗪𝗔𝗧𝗜 UID:{uid} {emojis} [{time}]"""
+]
+
+last_msg_id_by_user = {}
+user_reply_history = {}
+
+def get_random_emojis(count=5):
+    return "".join(random.sample(hearts, count))
+
+def get_next_reply(username, history):
+    possible_replies = [r for r in reply_templates_master if r not in history]
+    if not possible_replies:
+        history.clear()
+        possible_replies = reply_templates_master.copy()
+    reply = random.choice(possible_replies)
+    history.add(reply)
+    uid = uuid.uuid4().hex[:6]
+    emojis = get_random_emojis()
+    current_time = datetime.now().strftime("%H:%M:%S")
+    return reply.replace("{user}", username).replace("{uid}", uid).replace("{emojis}", emojis).replace("{time}", current_time)
+
+def auto_reply():
+    while True:
         try:
-            uid = uuid.uuid4().hex[:6]
-            long_msg = f"""
-🔥🔥NICK / TERYY MAA KI GND FADU-/ 🖤 🧠
+            threads = cl.direct_threads(amount=1)
 
-💥 TERY MAA CHDKE KYU BHAGTI?
-🚀 Dekh Nick Teri mummy ke kitne husband 👇🏼
-🤣 Dekh Tere ma ke aashiql ki ginti niche hai:
+            for thread in threads:
+                if not thread.messages:
+                    continue
 
-🧨 TERI MAA KE ASHIQ: {uid}
+                latest_msg = thread.messages[0]
 
-❤️🧡💛💚💙💜🖤
-❤️🧡💛💚💙💜🖤
-❤️🧡💛💚💙💜🖤
+                if latest_msg.user_id == me_id:
+                    continue
 
-🤣 BKL Mode On
-"""
-            cl.direct_answer(gc_thread_id, long_msg.strip())
-            print(f"✔️ Sent:\n{long_msg}")
-            time.sleep(random.randint(10, 15))
-        except Exception as e:
-            print(f"⚠️ Error: {e}")
-            time.sleep(60)
+                user_id = latest_msg.user_id
+                username = cl.user_info(user_id).username
 
-# 🎮 Telegram Commands
-async def startspam(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    global spamming, gc_thread_id
-    if update.effective_user.id != TELEGRAM_USER_ID:
-        return
-    if not gc_thread_id:
-        gc_thread_id = get_gc_id()
-    if not gc_thread_id:
-        await context.bot.send_message(chat_id=TELEGRAM_USER_ID, text="❌ GC not found.")
-        return
-    if not spamming:
-        spamming = True
-        threading.Thread(target=spam_loop).start()
-        await context.bot.send_message(chat_id=TELEGRAM_USER_ID, text="🚀 Started spamming!")
-    else:
-        await context.bot.send_message(chat_id=TELEGRAM_USER_ID, text="⚠️ Already spamming!")
+                if last_msg_id_by_user.get(user_id) == latest_msg.id:
+                    continue
 
-async def stopspam(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    global spamming
-    if update.effective_user.id != TELEGRAM_USER_ID:
-        return
-    spamming = False
-    await context.bot.send_message(chat_id=TELEGRAM_USER_ID, text="🛑 Stopped spamming.")
+                if user_id not in user_reply_history:
+                    user_reply_history[user_id] = set()
 
-# 🛠️ Telegram Bot Setup
-app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
-app.add_handler(CommandHandler("startspam", startspam))
-app.add_handler(CommandHandler("stopspam", stopspam))
+                reply = get_next_reply(username, user_reply_history[user_id])
 
-print("🚀 Bot is running...")
-app.run_polling()
+                try:
+                    # ⌨️ Typing effect
+                    typing_delay = random.uniform(1.5, 3.5)
+                    print(f"⌨️ Typing to @{username}... ({typing_delay:.2f}s)")
+                    time.sleep(typing_delay)
+
+                    cl.direct_answer(thread.id, reply)
+                    print(f"✔️ Replied to @{username}: {reply}")
+                    last_msg_id_by_user[user_id] = latest_msg.id
+                    time.sleep(random.randint(11, 22))
+                except Exception as e:
+                    print(f"⚠️ Failed to reply in thread {thread.id}: {e}")
+
+            time.sleep(random.randint(12, 23))
+
+        except Exception as err:
+            print(f"🚨 Main loop error: {err}")
+            time.sleep(random.randint(10, 20))
+
+# 🚀 Start bot
+auto_reply()

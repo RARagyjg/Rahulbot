@@ -17,33 +17,96 @@ print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 # 🔥 Heart emojis
 hearts = ["❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎"]
 
-# ✅ Message reply templates
+# 💬 Message reply templates
 reply_templates_master = [
-    """BLACK 𝐊𝐈 𝐌𝐔𝐌𝐌𝐘 𝐊𝐈 𝐁𝐇𝐎𝐒𝐃𝐈 UID:{uid} CHODUGA {emojis} [{time}]
-BLACK 𝐊𝐈 𝐊𝐔𝐖𝐀𝐑𝐈 𝐁𝐇𝐄𝐍 𝐊𝐀 𝐀𝐒𝐒 𝐇𝐎𝐋𝐄 𝐁𝐀𝐇𝐔𝐓 𝐓𝐈𝐆𝐇𝐓 𝐇 UID:{uid} {emojis} [{time}]""",
+    """BLACK KI MUMMY KI  CHUTT :{uid} FAD DUGA {emojis} [{time}]
+BLACK TERYY MAA KI BOOOR KA KHUN PILUGA RNDIKE__________________________________//:{uid} {emojis} [{time}]BLACK KI MUMMY KI  CHUTT :{uid} FAD DUGA {emojis} [{time}]
+BLACK TERYY MAA KI BOOOR KA KHUN PILUGA RNDIKE__________________________________//:{uid} {emojis} [{time}]BLACK KI MUMMY KI  CHUTT :{uid} FAD DUGA {emojis} [{time}]
+BLACK TERYY MAA KI BOOOR KA KHUN PILUGA RNDIKE__________________________________//:{uid} {emojis} [{time}]BLACK KI MUMMY KI  CHUTT :{uid} FAD DUGA {emojis} [{time}]
+BLACK TERYY MAA KI BOOOR KA KHUN PILUGA RNDIKE__________________________________//:{uid} {emojis} [{time}]BLACK KI MUMMY KI  CHUTT :{uid} FAD DUGA {emojis} [{time}]
+BLACK TERYY MAA KI BOOOR KA KHUN PILUGA RNDIKE__________________________________//:{uid} {emojis} [{time}]BLACK KI MUMMY KI  CHUTT :{uid} FAD DUGA {emojis} [{time}]
+BLACK TERYY MAA KI BOOOR KA KHUN PILUGA RNDIKE__________________________________//:{uid} {emojis} [{time}]BLACK KI MUMMY KI  CHUTT :{uid} FAD DUGA {emojis} [{time}]
+BLACK TERYY MAA KI BOOOR KA KHUN PILUGA RNDIKE__________________________________//:{uid} {emojis} [{time}]BLACK KI MUMMY KI  CHUTT :{uid} FAD DUGA {emojis} [{time}]
+BLACK TERYY MAA KI BOOOR KA KHUN PILUGA RNDIKE__________________________________//:{uid} {emojis} [{time}]BLACK KI MUMMY KI  CHUTT :{uid} FAD DUGA {emojis} [{time}]
+BLACK TERYY MAA KI BOOOR KA KHUN PILUGA RNDIKE__________________________________//:{uid} {emojis} [{time}]""",
 
-    """BLACK 𝗧𝗘𝗥𝗜 𝟭𝟱 𝗦𝗔𝗔𝗟 𝗞𝗜 𝗕𝗛𝗘𝗡 UID:{uid} 𝗞𝗢 𝗥𝗢𝗭 𝗠𝗘 𝗢𝗬𝗢 𝗠𝗘 𝗟𝗘𝗝𝗔𝗞𝗔𝗥 𝟰 𝗚𝗛𝗔𝗡𝗧𝗘 𝗖𝗛#𝗢𝗗𝗧𝗔 𝗛𝗨 {emojis} [{time}]
-BLACK 𝗞𝗜 𝗕𝗛𝗘𝗡 𝗢𝗬𝗢 𝗠𝗘 𝗥𝗢𝗭 𝗠𝗔𝗥𝗪𝗔𝗧𝗜 UID:{uid} {emojis} [{time}]"""
+    """BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]
+BLACK TERYYY BHN KI FUDDI MARUUGA SANDE KA TELL LGAKE ____________________________________//:{uid} {emojis} [{time}]"""
 ]
 
 last_msg_id_by_user = {}
 user_reply_history = {}
 
+# 🎨 Font stylizer
+def stylize_message(message):
+    font_styles = {
+        "bold": str.maketrans(
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+            "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭"
+            "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇"
+        ),
+        "italic": str.maketrans(
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+            "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡"
+            "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻"
+        ),
+        "monospace": str.maketrans(
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+            "𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉"
+            "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣"
+        ),
+        "double": str.maketrans(
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+            "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ"
+            "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"
+        ),
+        "fullwidth": str.maketrans(
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+            "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ"
+            "ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ"
+            "０１２３４５６７８９"
+        )
+    }
+    style = random.choice(list(font_styles.values()))
+    return message.translate(style)
+
+# ❤️ Random emoji generator
 def get_random_emojis(count=5):
     return "".join(random.sample(hearts, count))
 
+# 🧠 Get reply with personalization + font
 def get_next_reply(username, history):
     possible_replies = [r for r in reply_templates_master if r not in history]
     if not possible_replies:
         history.clear()
         possible_replies = reply_templates_master.copy()
-    reply = random.choice(possible_replies)
-    history.add(reply)
+    raw_reply = random.choice(possible_replies)
+    history.add(raw_reply)
+
     uid = uuid.uuid4().hex[:6]
     emojis = get_random_emojis()
     current_time = datetime.now().strftime("%H:%M:%S")
-    return reply.replace("{user}", username).replace("{uid}", uid).replace("{emojis}", emojis).replace("{time}", current_time)
 
+    filled = raw_reply.replace("{user}", username).replace("{uid}", uid).replace("{emojis}", emojis).replace("{time}", current_time)
+    return stylize_message(filled)
+
+# 🔁 Main loop
 def auto_reply():
     while True:
         try:

@@ -1,38 +1,80 @@
 from instagrapi import Client
 import time
 import random
+import uuid
+from datetime import datetime
+from keep_alive import keep_alive
 
-# Initialize and login
+keep_alive()
+
 cl = Client()
-cl.login_by_sessionid("70186756947%3AKZo0To6sb4I8i8%3A16%3AAYeGK-f0NNmxZmxJXFk3sIlZ_DywHJ_ZVgZ2wM7ufg")  # Replace with your real session ID
+cl.login_by_sessionid("70186756947%3Ajtqc25Mh4tfjt6%3A22%3AAYdaZNVLTtneohqtLIcpuaujhnHwYB3lNoeQ4gWGcA")  # Replace with your actual session ID
 
-# Generate spam message with random length
+print(f"✅ Logged in as @{cl.username} (ID: {cl.user_id})")
+
+# 🎨 Font styles
+font_styles = {
+    "bold": str.maketrans(
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+        "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭"
+        "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘶𝘷𝘄𝘅𝘆𝘇"
+    ),
+    "double": str.maketrans(
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+        "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ"
+        "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"
+    )
+}
+
+# Emoji options
+emojis_list = ["😂", "💀", "🔥", "🤡", "🚀", "🧠", "👻", "❤️", "😎", "🎯", "🖕", "💩", "✨"]
+
+# Stylize one line of message
+def stylize(text, style):
+    return text.translate(font_styles.get(style, {}))
+
+# 🔁 Create spam message with random size/font/emojis
 def create_spam_message():
-    base = "BLACK TERI MA KI B00R FAD DUGA"
-    repeat_count = random.randint(1, 5)  # Between 1 to 5 repetitions per message
-    return " ".join([base] * repeat_count)
+    base_line = "BLACK KI MA KI BOOR KA KHUN PILUGA_____///"
+    repeat_count = random.randint(10, 50)  # Sometimes short, sometimes long
+    uid = uuid.uuid4().hex[:6].upper()
+    emojis = ''.join(random.sample(emojis_list, 3))
+    time_now = datetime.now().strftime("%H:%M:%S")
+    font_style = random.choice(["bold", "double"])
 
-# Find group chat thread ID
-def get_gc_thread_id():
-    threads = cl.direct_threads(amount=1)  # Check last 10 threads
-    for thread in threads:
-        if thread.is_group:
-            return thread.id
-    return None
+    # Stylize each line
+    styled_line = stylize(base_line, font_style)
+    body = '\n'.join([styled_line] * repeat_count)
 
-# Get the GC thread ID
-gc_thread_id = get_gc_thread_id()
+    # Add UID, emoji, time at the end
+    footer = f"\n\n[ UID: {uid} ] | {emojis} | {time_now}"
+    return body + footer
 
-# Spam 50 messages with delay and random size
-if gc_thread_id:
-    for i in range(50):
+# ♾️ Auto spam main loop
+def auto_spam():
+    while True:
         try:
-            msg = create_spam_message()
-            cl.direct_answer(gc_thread_id, msg)
-            print(f"✔️ [{i+1}/50] Sent: {msg}")
-            time.sleep(random.randint(7, 15))  # Delay to avoid spam detection
+            threads = cl.direct_threads(amount=5)  # Top 5 GCs
+
+            for thread in threads:
+                msg = create_spam_message()
+                try:
+                    delay = round(random.uniform(1.5, 4.0), 2)
+                    print(f"⌨️ Typing to {thread.id}... ({delay}s)")
+                    time.sleep(delay)
+
+                    cl.direct_send(msg, [thread.id])
+                    print(f"✅ Sent to {thread.id}")
+                except Exception as e:
+                    print(f"❌ Error sending to {thread.id}: {e}")
+
+                time.sleep(random.randint(10, 20))  # Between each thread
+
+            time.sleep(random.randint(25, 45))  # Between each round
+
         except Exception as e:
-            print(f"⚠️ Error: {e}")
+            print(f"⚠️ Loop error: {e}")
             time.sleep(60)
-else:
-    print("❌ Group chat not found.")
+
+# 🚀 Start
+auto_spam()

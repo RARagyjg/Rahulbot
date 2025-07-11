@@ -134,22 +134,22 @@ def auto_reply():
 
                 try:
                     # ⌨️ Typing effect
-                    typing_delay = random.uniform(1.5, 3.5)
+                    typing_delay = random.uniform(1.5, 4.5)
                     print(f"⌨️ Typing to @{username}... ({typing_delay:.2f}s)")
                     time.sleep(typing_delay)
 
                     cl.direct_answer(thread.id, reply)
                     print(f"✔️ Replied to @{username}: {reply}")
                     last_msg_id_by_user[user_id] = latest_msg.id
-                    time.sleep(random.randint(11, 22))
+                    time.sleep(random.randint(1, 12))
                 except Exception as e:
                     print(f"⚠️ Failed to reply in thread {thread.id}: {e}")
 
-            time.sleep(random.randint(12, 23))
+            time.sleep(random.randint(1, 11))
 
         except Exception as err:
             print(f"🚨 Main loop error: {err}")
-            time.sleep(random.randint(10, 20))
+            time.sleep(random.randint(1, 10))
 
 # 🚀 Start bot
 auto_reply()

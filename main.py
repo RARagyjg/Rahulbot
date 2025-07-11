@@ -8,7 +8,7 @@ from keep_alive import keep_alive
 keep_alive()
 
 cl = Client()
-cl.login_by_sessionid("70186756947%3Ao7Z3NJUEmo9Zpm%3A16%3AAYfxR4BsaMfNBqubxVGlkVDvQEe6RGAIgDH0wG_4pw")
+cl.login_by_sessionid("70186756947%3AKZo0To6sb4I8i8%3A16%3AAYeGK-f0NNmxZmxJXFk3sIlZ_DywHJ_ZVgZ2wM7ufg")
 
 me_id = cl.user_id
 my_username = cl.username
@@ -141,15 +141,15 @@ def auto_reply():
                     cl.direct_answer(thread.id, reply)
                     print(f"✔️ Replied to @{username}: {reply}")
                     last_msg_id_by_user[user_id] = latest_msg.id
-                    time.sleep(random.randint(1, 12))
+                    time.sleep(random.randint(11, 22))
                 except Exception as e:
                     print(f"⚠️ Failed to reply in thread {thread.id}: {e}")
 
-            time.sleep(random.randint(1, 11))
+            time.sleep(random.randint(12, 23))
 
         except Exception as err:
             print(f"🚨 Main loop error: {err}")
-            time.sleep(random.randint(1, 10))
+            time.sleep(random.randint(10, 25))
 
 # 🚀 Start bot
 auto_reply()

@@ -1,50 +1,38 @@
 from instagrapi import Client
 import time
 import random
-from datetime import datetime
-from keep_alive import keep_alive  # Make sure you have keep_alive.py
 
-# 🔌 Keep Alive for hosting (like Repl.it or Render)
-keep_alive()
-
-# 🔐 Login using session ID
+# Initialize and login
 cl = Client()
 cl.login_by_sessionid("70186756947%3AKZo0To6sb4I8i8%3A16%3AAYeGK-f0NNmxZmxJXFk3sIlZ_DywHJ_ZVgZ2wM7ufg")  # Replace with your real session ID
 
-print(f"✅ Logged in as @{cl.username} (ID: {cl.user_id})")
-
-# 💬 Create spam message with random length and time+date footer
+# Generate spam message with random length
 def create_spam_message():
-    line = "BLACK KI MA KI BOOR KA KHUN PILUGA_____///"
-    repeat_count = random.randint(10, 50)  # Random message size
-    lines = [line] * repeat_count
-    
-    # Add time and date at the end
-    current_time = datetime.now().strftime("🕒 %I:%M %p | 📅 %d %B")
-    lines.append(current_time)
-    
-    return '\n'.join(lines)
+    base = "BLACK TERI MA KI B00R FAD DUGA"
+    repeat_count = random.randint(1, 5)  # Between 1 to 5 repetitions per message
+    return " ".join([base] * repeat_count)
 
-# 🔁 Auto spam loop
-def auto_spam():
-    while True:
+# Find group chat thread ID
+def get_gc_thread_id():
+    threads = cl.direct_threads(amount=1)  # Check last 10 threads
+    for thread in threads:
+        if thread.is_group:
+            return thread.id
+    return None
+
+# Get the GC thread ID
+gc_thread_id = get_gc_thread_id()
+
+# Spam 50 messages with delay and random size
+if gc_thread_id:
+    for i in range(50):
         try:
-            threads = cl.direct_threads(amount=1)  # Top 5 recent chats (DMs/GCs)
-            for thread in threads:
-                msg = create_spam_message()
-                try:
-                    typing_time = round(random.uniform(1.5, 4.0), 2)
-                    print(f"⌨️ Typing to {thread.id}... ({typing_time}s)")
-                    time.sleep(typing_time)
-                    cl.direct_send(msg, [thread.id])
-                    print(f"✅ Sent spam to {thread.id}")
-                except Exception as e:
-                    print(f"❌ Send failed in {thread.id}: {e}")
-                time.sleep(random.randint(10, 20))  # Wait before next chat
-            time.sleep(random.randint(20, 40))  # Delay before repeating loop
-        except Exception as err:
-            print(f"⚠️ Main loop error: {err}")
-            time.sleep(30)  # Wait before retrying if there's an error
-
-# 🚀 Start bot
-auto_spam()
+            msg = create_spam_message()
+            cl.direct_answer(gc_thread_id, msg)
+            print(f"✔️ [{i+1}/50] Sent: {msg}")
+            time.sleep(random.randint(7, 15))  # Delay to avoid spam detection
+        except Exception as e:
+            print(f"⚠️ Error: {e}")
+            time.sleep(60)
+else:
+    print("❌ Group chat not found.")

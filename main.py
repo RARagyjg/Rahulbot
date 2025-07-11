@@ -110,7 +110,7 @@ def get_next_reply(username, history):
 def auto_reply():
     while True:
         try:
-            threads = cl.direct_threads(amount=1)
+            threads = cl.direct_threads(amount=10)
 
             for thread in threads:
                 if not thread.messages:
@@ -141,15 +141,15 @@ def auto_reply():
                     cl.direct_answer(thread.id, reply)
                     print(f"✔️ Replied to @{username}: {reply}")
                     last_msg_id_by_user[user_id] = latest_msg.id
-                    time.sleep(random.randint(11, 22))
+                    time.sleep(random.randint(13, 60))
                 except Exception as e:
                     print(f"⚠️ Failed to reply in thread {thread.id}: {e}")
 
-            time.sleep(random.randint(12, 23))
+            time.sleep(random.randint(12, 75))
 
         except Exception as err:
             print(f"🚨 Main loop error: {err}")
-            time.sleep(random.randint(10, 25))
+            time.sleep(random.randint(10, 120))
 
 # 🚀 Start bot
 auto_reply()

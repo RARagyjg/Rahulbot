@@ -8,7 +8,7 @@ from keep_alive import keep_alive
 keep_alive()
 
 cl = Client()
-cl.login_by_sessionid("70186756947%3Ajtqc25Mh4tfjt6%3A22%3AAYdaZNVLTtneohqtLIcpuaujhnHwYB3lNoeQ4gWGcA")  # Replace with your actual session ID
+cl.login_by_sessionid("77802598284%3A38M5A0SzWLcqvw%3A4%3AAYh6yiKD0u0La8-wTM9or8oEUlyPtirD7zhGa63XoQ")  # Replace with your actual session ID
 
 print(f"✅ Logged in as @{cl.username} (ID: {cl.user_id})")
 
@@ -35,7 +35,7 @@ def stylize(text, style):
 
 # 🔁 Create spam message with random size/font/emojis
 def create_spam_message():
-    base_line = "BLACK KI MA KI BOOR KA KHUN PILUGA_____///"
+    base_line = """OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///"""
     repeat_count = random.randint(10, 50)  # Sometimes short, sometimes long
     uid = uuid.uuid4().hex[:6].upper()
     emojis = ''.join(random.sample(emojis_list, 3))

@@ -1,80 +1,100 @@
 from instagrapi import Client
 import time
-import random
-import uuid
-from datetime import datetime
 from keep_alive import keep_alive
 
+# 🟢 Start KeepAlive server for Replit 24/7
 keep_alive()
 
+# 🔐 Login with Session ID (replace this)
 cl = Client()
-cl.login_by_sessionid("77802598284%3A38M5A0SzWLcqvw%3A4%3AAYh6yiKD0u0La8-wTM9or8oEUlyPtirD7zhGa63XoQ")  # Replace with your actual session ID
+cl.login_by_sessionid("77802598284%3A38M5A0SzWLcqvw%3A4%3AAYh6yiKD0u0La8-wTM9or8oEUlyPtirD7zhGa63XoQ")
 
-print(f"✅ Logged in as @{cl.username} (ID: {cl.user_id})")
+# 🤖 Bot Info
+me_id = cl.user_id
+print(f"🤖 Bot running as: {cl.username} (User ID: {me_id})")
 
-# 🎨 Font styles
-font_styles = {
-    "bold": str.maketrans(
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
-        "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭"
-        "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘶𝘷𝘄𝘅𝘆𝘇"
-    ),
-    "double": str.maketrans(
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
-        "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ"
-        "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫"
-    )
-}
+# ✅ To avoid replying again to the same message
+replied_msg_ids = set()
 
-# Emoji options
-emojis_list = ["😂", "💀", "🔥", "🤡", "🚀", "🧠", "👻", "❤️", "😎", "🎯", "🖕", "💩", "✨"]
-
-# Stylize one line of message
-def stylize(text, style):
-    return text.translate(font_styles.get(style, {}))
-
-# 🔁 Create spam message with random size/font/emojis
-def create_spam_message():
-    base_line = """OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///OMA/KAPIL/AARIZ/LAHIRU KI MA KI BOOR KA KHUN PILUGA_____///"""
-    repeat_count = random.randint(10, 50)  # Sometimes short, sometimes long
-    uid = uuid.uuid4().hex[:6].upper()
-    emojis = ''.join(random.sample(emojis_list, 3))
-    time_now = datetime.now().strftime("%H:%M:%S")
-    font_style = random.choice(["bold", "double"])
-
-    # Stylize each line
-    styled_line = stylize(base_line, font_style)
-    body = '\n'.join([styled_line] * repeat_count)
-
-    # Add UID, emoji, time at the end
-    footer = f"\n\n[ UID: {uid} ] | {emojis} | {time_now}"
-    return body + footer
-
-# ♾️ Auto spam main loop
-def auto_spam():
+def auto_reply():
     while True:
-        try:
-            threads = cl.direct_threads(amount=5)  # Top 5 GCs
+        threads = cl.direct_threads(amount=10)
 
-            for thread in threads:
-                msg = create_spam_message()
+        for thread in threads:
+            if not thread.messages:
+                continue
+
+            for msg in thread.messages[:1]:  # Last 5 msgs check kare
+                if msg.id in replied_msg_ids:
+                    continue  # Already replied
+
+                if msg.user_id == me_id:
+                    continue  # Apne msg skip
+
                 try:
-                    delay = round(random.uniform(1.5, 4.0), 2)
-                    print(f"⌨️ Typing to {thread.id}... ({delay}s)")
-                    time.sleep(delay)
+                    # ✉️ Reply to the same thread (GC or DM)
+                    cl.direct_answer(thread.id, """NICK KA BAAP RAHUL HU🖤
 
-                    cl.direct_send(msg, [thread.id])
-                    print(f"✅ Sent to {thread.id}")
+
+
+
+
+
+
+
+OMA/KAPIL/BAGHEL KI MAA NANGI KRDI🖤
+
+
+OMA CHOTE TATE TERI MA CHODUNGA🖤
+
+
+
+AARIZ APNI MA CHUDA KE MANEGA🖤
+
+
+
+
+
+
+LAHIRU KI MA RAHUL KE LND PE H🖤
+
+
+
+
+
+
+
+
+OMA GRIB BHEEK DU BOL RNDI🖤
+
+
+
+
+
+
+
+
+
+
+
+LAHIRU GRIB TERI MAA CHUDA MERE SE🖤
+
+
+
+
+
+
+
+
+
+OMA/CVZIII TERI MA CHOD KE PAISE DUNGA CHLEGA NA🖤""")
+                    print(f"✔️ Replied to user {msg.user_id} in thread {thread.id}")
+                    replied_msg_ids.add(msg.id)
+
                 except Exception as e:
-                    print(f"❌ Error sending to {thread.id}: {e}")
+                    print(f"⚠️ Error replying to thread {thread.id}: {e}")
 
-                time.sleep(random.randint(10, 20))  # Between each thread
+        time.sleep(20)
 
-            time.sleep(random.randint(25, 45))  # Between each round
-
-        except Exception as e:
-            print(f"⚠️ Loop error: {e}")
-            time.sleep(60)
-
-# 🚀 Start
-auto_spam()
+auto_reply()
+                    

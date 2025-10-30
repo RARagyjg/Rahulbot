@@ -29,26 +29,8 @@ print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 
 # ✅ Message templates
 reply_templates_master = [
-    """/silent /silent OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀 𝐊𝐈 𝐁𝐎𝐎𝐑 𝐊𝐀 𝐊𝐇𝐔𝐍  𝐏𝐈𝐋𝐔𝐆𝐀______________________________/ 
-OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀𝐀 𝐂𝐇𝐎𝐃 𝐃𝐔𝐆𝐀 𝐁𝐄𝐓𝐄 ________________________________________/
-OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀 𝐊𝐈 𝐁𝐎𝐎𝐑 𝐊𝐀 𝐊𝐇𝐔𝐍  𝐏𝐈𝐋𝐔𝐆𝐀______________________________/ 
-OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀𝐀 𝐂𝐇𝐎𝐃 𝐃𝐔𝐆𝐀 𝐁𝐄𝐓𝐄 ________________________________________/
-OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀 𝐊𝐈 𝐁𝐎𝐎𝐑 𝐊𝐀 𝐊𝐇𝐔𝐍  𝐏𝐈𝐋𝐔𝐆𝐀______________________________/ 
-OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀𝐀 𝐂𝐇𝐎𝐃 𝐃𝐔𝐆𝐀 𝐁𝐄𝐓𝐄 ________________________________________/
-OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀 𝐊𝐈 𝐁𝐎𝐎𝐑 𝐊𝐀 𝐊𝐇𝐔𝐍  𝐏𝐈𝐋𝐔𝐆𝐀______________________________/ 
-OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀𝐀 𝐂𝐇𝐎𝐃 𝐃𝐔𝐆𝐀 𝐁𝐄𝐓𝐄 ________________________________________/
-OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀 𝐊𝐈 𝐁𝐎𝐎𝐑 𝐊𝐀 𝐊𝐇𝐔𝐍  𝐏𝐈𝐋𝐔𝐆𝐀______________________________/ 
-OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀𝐀 𝐂𝐇𝐎𝐃 𝐃𝐔𝐆𝐀 𝐁𝐄𝐓𝐄 ________________________________________/
-OMA/LAHIRU/CVZII/AARIZ/KAPIL 𝐌𝐀 𝐊𝐈 𝐁𝐎𝐎𝐑 𝐊𝐀 𝐊𝐇𝐔𝐍  𝐏𝐈𝐋𝐔𝐆𝐀______________________________/""",
-    """/silent /silent 𝗢𝗠𝗔 𝗚𝗔𝗥𝗘𝗘𝗕 𝗧𝗘𝗥𝗬𝗬𝗬 𝗠𝗔 𝗞𝗜 𝗕𝗨𝗥 𝗙𝗔𝗧 𝗝𝗔𝗬𝗘𝗚𝗜 𝗠𝗔𝗔𝗔𝗗𝗥𝗖𝗛𝗢𝗢𝗗🤣🤣🤣🤣🤣🤣🤣
-𝗢𝗠𝗔 𝗚𝗔𝗥𝗘𝗘𝗕 𝗧𝗘𝗥𝗬𝗬𝗬 𝗠𝗔 𝗞𝗜 𝗕𝗨𝗥 𝗙𝗔𝗧 𝗝𝗔𝗬𝗘𝗚𝗜 𝗠𝗔𝗔𝗔𝗗𝗥𝗖𝗛𝗢𝗢𝗗🤣🤣🤣🤣🤣🤣🤣
-𝗢𝗠𝗔 𝗚𝗔𝗥𝗘𝗘𝗕 𝗧𝗘𝗥𝗬𝗬𝗬 𝗠𝗔 𝗞𝗜 𝗕𝗨𝗥 𝗙𝗔𝗧 𝗝𝗔𝗬𝗘𝗚𝗜 𝗠𝗔𝗔𝗔𝗗𝗥𝗖𝗛𝗢𝗢𝗗🤣🤣🤣🤣🤣🤣🤣
-𝗢𝗠𝗔 𝗚𝗔𝗥𝗘𝗘𝗕 𝗧𝗘𝗥𝗬𝗬𝗬 𝗠𝗔 𝗞𝗜 𝗕𝗨𝗥 𝗙𝗔𝗧 𝗝𝗔𝗬𝗘𝗚𝗜 𝗠𝗔𝗔𝗔𝗗𝗥𝗖𝗛𝗢𝗢𝗗🤣🤣🤣🤣🤣🤣🤣
-𝗢𝗠𝗔 𝗚𝗔𝗥𝗘𝗘𝗕 𝗧𝗘𝗥𝗬𝗬𝗬 𝗠𝗔 𝗞𝗜 𝗕𝗨𝗥 𝗙𝗔𝗧 𝗝𝗔𝗬𝗘𝗚𝗜 𝗠𝗔𝗔𝗔𝗗𝗥𝗖𝗛𝗢𝗢𝗗🤣🤣🤣🤣🤣🤣🤣
-𝗢𝗠𝗔 𝗚𝗔𝗥𝗘𝗘𝗕 𝗧𝗘𝗥𝗬𝗬𝗬 𝗠𝗔 𝗞𝗜 𝗕𝗨𝗥 𝗙𝗔𝗧 𝗝𝗔𝗬𝗘𝗚𝗜 𝗠𝗔𝗔𝗔𝗗𝗥𝗖𝗛𝗢𝗢𝗗🤣🤣🤣🤣🤣🤣🤣
-𝗢𝗠𝗔 𝗚𝗔𝗥𝗘𝗘𝗕 𝗧𝗘𝗥𝗬𝗬𝗬 𝗠𝗔 𝗞𝗜 𝗕𝗨𝗥 𝗙𝗔𝗧 𝗝𝗔𝗬𝗘𝗚𝗜 𝗠𝗔𝗔𝗔𝗗𝗥𝗖𝗛𝗢𝗢𝗗🤣🤣🤣🤣🤣🤣🤣
-𝗢𝗠𝗔 𝗚𝗔𝗥𝗘𝗘𝗕 𝗧𝗘𝗥𝗬𝗬𝗬 𝗠𝗔 𝗞𝗜 𝗕𝗨𝗥 𝗙𝗔𝗧 𝗝𝗔𝗬𝗘𝗚𝗜 𝗠𝗔𝗔𝗔𝗗𝗥𝗖𝗛𝗢𝗢𝗗🤣🤣🤣🤣🤣🤣🤣
-𝗢𝗠𝗔 𝗚𝗔𝗥𝗘𝗘𝗕 𝗧𝗘𝗥𝗬𝗬𝗬 𝗠𝗔 𝗞𝗜 𝗕𝗨𝗥 𝗙𝗔𝗧 𝗝𝗔𝗬𝗘𝗚𝗜 𝗠𝗔𝗔𝗔𝗗𝗥𝗖𝗛𝗢𝗢𝗗🤣🤣🤣🤣🤣🤣🤣𝗕𝗛𝗔𝗚 𝗠𝗧𝗧😂""",
+    """/silent O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E""",
+    """/silent O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R""",
 ]
 
 # 💬 Target group chat thread ID
@@ -79,7 +61,7 @@ def auto_send():  # 🔁 auto-sender
             time.sleep(random.randint(30, 60))  # 30–60 sec delay
         except Exception as err:
             print(f"⚠️ Error: {err}")
-            time.sleep(30)
+            time.sleep(random.randint(30, 60))
 
 # 🚀 Start auto message sender
 auto_send() 

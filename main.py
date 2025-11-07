@@ -21,7 +21,7 @@ threading.Thread(target=self_ping, daemon=True).start()
 
 # 🔐 Login
 cl = Client()
-cl.login_by_sessionid("78046309958%3A3miDGkhzamz7b4%3A4%3AAYiQMRUtb1WbXN0B00XgT_T7Y2ZzukJM64mXUW3nWw")
+cl.login_by_sessionid("78046309958%3AsF7MFPCDKWcwFD%3A1%3AAYi0bkSm6oT5H7K9aiLHBSkVfFZ4G7OnWMbtGpMShw")
 
 me_id = cl.user_id
 my_username = cl.username
@@ -29,8 +29,41 @@ print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 
 # ✅ Message templates
 reply_templates_master = [
-    """ O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E O M A L9 P E😂💀""",
-    """  O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT , T O H A R - M AA - K A B U R -O M A K I M U M Y B H A G N A M A TT💗😐""",
+    """OMA/LAHIRU TERI RUNDY MAIYA KE MUH MEI LND DALKR MUTH MARUNGA💋💦-----------------------------------------------------------------------------------------------------------------------------------------------OMA/LAHIRU KI BEHN KE MUH MEI PESAB KARUNGA--------------------------------------------------------------------------------------------OMA/LAHIRU TERI RUNDY MAIYA KE MUH MEI LND DALKR MUTH MARUNGA💋💦----------------------------------------------------------------------------------------------------------------------------------------------OMA/LAHIRU KI BEHN KE MUH MEI PESAB KARUNGA--------------------------------------------------------------------------------------------OMA/LAHIRU TERI MAKI  XHUT MARUNGA KUTIYA KE B33EJJ""",
+    """__________
+
+OMA_LAKDIKIKATHIKATHIPER__
+GHODA🐴
+TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
+
+OMA_LAKDIKIKATHIKATHIPER__
+GHODA🐴
+TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
+
+OMA_LAKDIKIKATHIKATHIPER__
+GHODA🐴
+TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
+
+OMA_LAKDIKIKATHIKATHIPER__
+GHODA🐴
+TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
+
+OMA_LAKDIKIKATHIKATHIPER__
+GHODA🐴
+TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
+
+OMA_LAKDIKIKATHIKATHIPER__
+GHODA🐴
+TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
+
+OMA_LAKDIKIKATHIKATHIPER__
+GHODA🐴
+TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂 ‌ ‌
+
+
+😂 OMA_2KODI_KE_SASTE_SAPAMER_TMK🖖 
+
+😂 OMA_RANDI_CHUD🍌KE_BHG_MTT😂"""
 ]
 
 # 💬 Target group chat thread ID
@@ -58,7 +91,7 @@ def auto_send():  # 🔁 auto-sender
             cl.direct_send(msg, thread_ids=[TARGET_THREAD_ID])
             print(f"📤 Sent auto message: {msg}")
 
-            time.sleep(random.randint(30, 70))  # 30–60 sec delay
+            time.sleep(random.randint(50, 100))  # 30–60 sec delay
                                  
         except Exception as err:
             print(f"⚠️ Error: {err}")

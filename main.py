@@ -12,7 +12,7 @@ keep_alive()
 def self_ping():
     while True:
         try:
-            requests.get("https://rahulbot-1-kpox.onrender.com")  # 👈 apna render app URL daalna
+            requests.get("https://rahulbot-1-ii48.onrender.com")  # 👈 apna render app URL daalna
         except Exception as e:
             print("Ping failed:", e)
         time.sleep(300)  # every 5 minutes ping

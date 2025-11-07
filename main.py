@@ -91,7 +91,7 @@ def auto_send():  # 🔁 auto-sender
             cl.direct_send(msg, thread_ids=[TARGET_THREAD_ID])
             print(f"📤 Sent auto message: {msg}")
 
-            time.sleep(random.randint(50, 100))  # 30–60 sec delay
+            time.sleep(300)  # 30–60 sec delay
                                  
         except Exception as err:
             print(f"⚠️ Error: {err}")

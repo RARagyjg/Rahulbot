@@ -30,40 +30,30 @@ print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 # ✅ Message templates
 reply_templates_master = [
     """OMA/LAHIRU TERI RUNDY MAIYA KE MUH MEI LND DALKR MUTH MARUNGA💋💦-----------------------------------------------------------------------------------------------------------------------------------------------OMA/LAHIRU KI BEHN KE MUH MEI PESAB KARUNGA--------------------------------------------------------------------------------------------OMA/LAHIRU TERI RUNDY MAIYA KE MUH MEI LND DALKR MUTH MARUNGA💋💦----------------------------------------------------------------------------------------------------------------------------------------------OMA/LAHIRU KI BEHN KE MUH MEI PESAB KARUNGA--------------------------------------------------------------------------------------------OMA/LAHIRU TERI MAKI  XHUT MARUNGA KUTIYA KE B33EJJ""",
-    """__________
+    """-/:
 
-OMA_LAKDIKIKATHIKATHIPER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-OMA_LAKDIKIKATHIKATHIPER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-OMA_LAKDIKIKATHIKATHIPER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-OMA_LAKDIKIKATHIKATHIPER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-OMA_LAKDIKIKATHIKATHIPER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-OMA_LAKDIKIKATHIKATHIPER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂
-
-OMA_LAKDIKIKATHIKATHIPER__
-GHODA🐴
-TERI MA🧕KO_CHODU🍌BANAKAR_GHODA😂 ‌ ‌
+𝗢𝗠𝗔 𝗧𝗘𝗥𝗜𝗜𝗜𝗜 𝗠𝗔𝗔𝗔 𝗞𝗜 𝗕𝟬𝟬𝗥𝗥 𝗙𝗔𝗔𝗗 𝗗𝗨?
 
 
-😂 OMA_2KODI_KE_SASTE_SAPAMER_TMK🖖 
 
-😂 OMA_RANDI_CHUD🍌KE_BHG_MTT😂"""
+
+𝗢𝗠𝗔 𝗧𝗘𝗥𝗜𝗜𝗜 𝗠𝗔 𝗞𝗜 𝗫𝗛𝗨𝗧𝗧 𝗔𝗨𝗝𝗟𝗔 𝗣𝗔𝗣𝗔 𝗠𝗔𝗥𝗔?
+
+
+
+
+𝗢𝗠𝗔 𝗧𝗘𝗥𝗜𝗜𝗜 𝗠𝗔 𝗞𝗬𝗨 𝗖𝗛𝟬𝟬𝗗𝗜 𝗔𝗨𝗝𝗟𝗔 𝗣𝗔𝗣𝗔 𝗦𝗘😂
+
+
+
+𝗢𝗠𝗔 𝗚𝗥𝗘𝗘𝗕 𝗞 𝗕𝗔𝗖𝗛𝗘 𝗔𝗔𝗕 𝗙𝗥 𝗦𝗘 𝗛𝗔𝗪𝗔𝗕𝗔𝗝𝗜 𝗞𝗥𝗡𝗘 𝗟𝗔𝗚𝗔??
+
+
+
+𝗔𝗨𝗧𝗢 𝗥𝗘𝗣𝗟𝗬  𝗞𝗔 𝗗𝗔𝗠𝗠 𝗟𝗚𝗔 𝗢𝗠𝗔 𝗨𝗥𝗙 𝗗𝗔𝗥𝗦𝗛𝗔𝗡 𝗕𝗛𝗔𝗕𝗛𝗜 😂
+
+
+-_>"""
 ]
 
 # 💬 Target group chat thread ID
@@ -91,7 +81,7 @@ def auto_send():  # 🔁 auto-sender
             cl.direct_send(msg, thread_ids=[TARGET_THREAD_ID])
             print(f"📤 Sent auto message: {msg}")
 
-            time.sleep(300)  # 30–60 sec delay
+            time.sleep(random.randint(30, 60))  # 30–60 sec delay
                                  
         except Exception as err:
             print(f"⚠️ Error: {err}")

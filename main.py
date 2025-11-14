@@ -21,7 +21,7 @@ threading.Thread(target=self_ping, daemon=True).start()
 
 # 🔐 Login
 cl = Client()
-cl.login_by_sessionid("78046309958%3AsF7MFPCDKWcwFD%3A1%3AAYi0bkSm6oT5H7K9aiLHBSkVfFZ4G7OnWMbtGpMShw")
+cl.login_by_sessionid("75330318477%3Awgu7xN9EEZlExq%3A10%3AAYgpuF_WmCrYQ_1pdLNhrxkrncDRWPn0iwrHC8Uw-g")
 
 me_id = cl.user_id
 my_username = cl.username

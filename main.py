@@ -21,7 +21,7 @@ threading.Thread(target=self_ping, daemon=True).start()
 
 # 🔐 Login
 cl = Client()
-cl.login_by_sessionid("78046309958%3AVQL8NaL37snJaQ%3A3%3AAYjGZRBpW6UJNVXYI61UA5j4gz9F4JpUyNG1u74_9g")
+cl.login_by_sessionid("75330318477%3ADpG8YO9vuytEaI%3A11%3AAYhNaLLXFgnFFJo6E7_e3c8L9PjbIeXtk6mjz6falA")
 
 me_id = cl.user_id
 my_username = cl.username
@@ -81,7 +81,7 @@ def auto_send():  # 🔁 auto-sender
             cl.direct_send(msg, thread_ids=[TARGET_THREAD_ID])
             print(f"📤 Sent auto message: {msg}")
 
-            time.sleep(random.randint(30, 60))  # 30–60 sec delay
+            time.sleep(random.randint(90, 100))  # 30–60 sec delay
                                  
         except Exception as err:
             print(f"⚠️ Error: {err}")

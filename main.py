@@ -2,34 +2,18 @@ from instagrapi import Client
 import time
 import random
 from keep_alive import keep_alive
-import threading
-import requests
 
-# ✅ Start keep-alive server (for Render/UptimeRobot)
 keep_alive()
 
-# 🟢 Self-ping system (bot ko idle hone se bachata hai)
-def self_ping():
-    while True:
-        try:
-            requests.get("https://rahulbot-1-ii48.onrender.com")  # 👈 apna render app URL daalna
-        except Exception as e:
-            print("Ping failed:", e)
-        time.sleep(300)  # every 5 minutes ping
-
-threading.Thread(target=self_ping, daemon=True).start()
-
-# 🔐 Login
 cl = Client()
-cl.login_by_sessionid("75330318477%3ADpG8YO9vuytEaI%3A11%3AAYhNaLLXFgnFFJo6E7_e3c8L9PjbIeXtk6mjz6falA")
+cl.login_by_sessionid("75694570387%3A56oKsATvfdlgmR%3A9%3AAYg7_-pj83XoMqfCZLw5O8zQSl-b5xFVXxVaiSMsfQ")  # 🔐 Apna session ID daalo
 
 me_id = cl.user_id
 my_username = cl.username
 print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 
-# ✅ Message templates
+# ✅ Message templates (edit if you want)
 reply_templates_master = [
-    """OMA/LAHIRU TERI RUNDY MAIYA KE MUH MEI LND DALKR MUTH MARUNGA💋💦-----------------------------------------------------------------------------------------------------------------------------------------------OMA/LAHIRU KI BEHN KE MUH MEI PESAB KARUNGA--------------------------------------------------------------------------------------------OMA/LAHIRU TERI RUNDY MAIYA KE MUH MEI LND DALKR MUTH MARUNGA💋💦----------------------------------------------------------------------------------------------------------------------------------------------OMA/LAHIRU KI BEHN KE MUH MEI PESAB KARUNGA--------------------------------------------------------------------------------------------OMA/LAHIRU TERI MAKI  XHUT MARUNGA KUTIYA KE B33EJJ""",
     """-/:
 
 𝗢𝗠𝗔 𝗧𝗘𝗥𝗜𝗜𝗜𝗜 𝗠𝗔𝗔𝗔 𝗞𝗜 𝗕𝟬𝟬𝗥𝗥 𝗙𝗔𝗔𝗗 𝗗𝗨?
@@ -53,11 +37,11 @@ reply_templates_master = [
 𝗔𝗨𝗧𝗢 𝗥𝗘𝗣𝗟𝗬  𝗞𝗔 𝗗𝗔𝗠𝗠 𝗟𝗚𝗔 𝗢𝗠𝗔 𝗨𝗥𝗙 𝗗𝗔𝗥𝗦𝗛𝗔𝗡 𝗕𝗛𝗔𝗕𝗛𝗜 😂
 
 
--_>"""
+-_>""",
 ]
 
-# 💬 Target group chat thread ID
-TARGET_THREAD_ID = "2859303934258963"
+# 💬 Thread ID (GC ya user chat jisme msg bhejna hai)
+TARGET_THREAD_ID = "2859303934258963"  # 👈 apna GC thread ID daalo
 
 # 🧠 Maintain message history
 user_reply_history = {}
@@ -71,21 +55,26 @@ def get_next_message(history):
     history.add(msg)
     return msg
 
-def auto_send():  # 🔁 auto-sender
+def auto_send():  # 👈 ab ye auto-send hai, reply nahi
     while True:
         try:
+            # Initialize history
             if me_id not in user_reply_history:
                 user_reply_history[me_id] = set()
 
+            # 📨 Random message select karo
             msg = get_next_message(user_reply_history[me_id])
+
+            # Send message
             cl.direct_send(msg, thread_ids=[TARGET_THREAD_ID])
             print(f"📤 Sent auto message: {msg}")
 
-            time.sleep(random.randint(90, 100))  # 30–60 sec delay
-                                 
-        except Exception as err:
-            print(f"⚠️ Error: {err}")
+            # Random delay (change if you want faster/slower)
             time.sleep(random.randint(30, 60))
 
+        except Exception as err:
+            print(f"⚠️ Error: {err}")
+            time.sleep(30)
+
 # 🚀 Start auto message sender
-auto_send() 
+auto_send()

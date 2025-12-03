@@ -6,7 +6,7 @@ from keep_alive import keep_alive
 keep_alive()
 
 cl = Client()
-cl.login_by_sessionid("75330318477%3AGuq4jrQuGaX4nk%3A0%3AAYf3r0oRCLBxwtDkSrBXL4GHv04_AqEpHE6kvMmy9g")  # 🔐 Apna session ID daalo
+cl.login_by_sessionid("62606549169%3A4pcO6RgJXyYdwV%3A23%3AAYi5NYIT5_Uq13HxvLJKHmVv-B3Lzrj7sV4SjXFnsg")  # 🔐 Apna session ID daalo
 
 me_id = cl.user_id
 my_username = cl.username
@@ -14,13 +14,12 @@ print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 
 # ✅ Message templates (edit if you want)
 reply_templates_master = [
-    "HI I AM RAHUL 🥰",
-    "Kya haal hai sabka 😎",
-    "Kon online hai 😂"
+    """OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  OMA - T E R I M A K B OX DA CH O DU GA  """,
+    """OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? OMA- TERII MA CHDKE KYI BHGTI BETE? """
 ]
 
 # 💬 Thread ID (GC ya user chat jisme msg bhejna hai)
-TARGET_THREAD_ID = "340282366841710300949128XXXXXXXX"  # 👈 apna GC thread ID daalo
+TARGET_THREAD_ID = "2859303934258963"  # 👈 apna GC thread ID daalo
 
 # 🧠 Maintain message history
 user_reply_history = {}
@@ -49,7 +48,7 @@ def auto_send():  # 👈 ab ye auto-send hai, reply nahi
             print(f"📤 Sent auto message: {msg}")
 
             # Random delay (change if you want faster/slower)
-            time.sleep(random.randint(30, 60))
+            time.sleep(random.randint(60, 100))
 
         except Exception as err:
             print(f"⚠️ Error: {err}")

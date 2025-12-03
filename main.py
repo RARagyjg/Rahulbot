@@ -6,7 +6,7 @@ from keep_alive import keep_alive
 keep_alive()
 
 cl = Client()
-cl.login_by_sessionid("75694570387%3A56oKsATvfdlgmR%3A9%3AAYg7_-pj83XoMqfCZLw5O8zQSl-b5xFVXxVaiSMsfQ")  # 🔐 Apna session ID daalo
+cl.login_by_sessionid("75330318477%3AGuq4jrQuGaX4nk%3A0%3AAYf3r0oRCLBxwtDkSrBXL4GHv04_AqEpHE6kvMmy9g")  # 🔐 Apna session ID daalo
 
 me_id = cl.user_id
 my_username = cl.username
@@ -14,34 +14,13 @@ print(f"🤖 Logged in as @{my_username} (ID: {me_id})")
 
 # ✅ Message templates (edit if you want)
 reply_templates_master = [
-    """-/:
-
-𝗢𝗠𝗔 𝗧𝗘𝗥𝗜𝗜𝗜𝗜 𝗠𝗔𝗔𝗔 𝗞𝗜 𝗕𝟬𝟬𝗥𝗥 𝗙𝗔𝗔𝗗 𝗗𝗨?
-
-
-
-
-𝗢𝗠𝗔 𝗧𝗘𝗥𝗜𝗜𝗜 𝗠𝗔 𝗞𝗜 𝗫𝗛𝗨𝗧𝗧 𝗔𝗨𝗝𝗟𝗔 𝗣𝗔𝗣𝗔 𝗠𝗔𝗥𝗔?
-
-
-
-
-𝗢𝗠𝗔 𝗧𝗘𝗥𝗜𝗜𝗜 𝗠𝗔 𝗞𝗬𝗨 𝗖𝗛𝟬𝟬𝗗𝗜 𝗔𝗨𝗝𝗟𝗔 𝗣𝗔𝗣𝗔 𝗦𝗘😂
-
-
-
-𝗢𝗠𝗔 𝗚𝗥𝗘𝗘𝗕 𝗞 𝗕𝗔𝗖𝗛𝗘 𝗔𝗔𝗕 𝗙𝗥 𝗦𝗘 𝗛𝗔𝗪𝗔𝗕𝗔𝗝𝗜 𝗞𝗥𝗡𝗘 𝗟𝗔𝗚𝗔??
-
-
-
-𝗔𝗨𝗧𝗢 𝗥𝗘𝗣𝗟𝗬  𝗞𝗔 𝗗𝗔𝗠𝗠 𝗟𝗚𝗔 𝗢𝗠𝗔 𝗨𝗥𝗙 𝗗𝗔𝗥𝗦𝗛𝗔𝗡 𝗕𝗛𝗔𝗕𝗛𝗜 😂
-
-
--_>""",
+    "HI I AM RAHUL 🥰",
+    "Kya haal hai sabka 😎",
+    "Kon online hai 😂"
 ]
 
 # 💬 Thread ID (GC ya user chat jisme msg bhejna hai)
-TARGET_THREAD_ID = "2859303934258963"  # 👈 apna GC thread ID daalo
+TARGET_THREAD_ID = "340282366841710300949128XXXXXXXX"  # 👈 apna GC thread ID daalo
 
 # 🧠 Maintain message history
 user_reply_history = {}

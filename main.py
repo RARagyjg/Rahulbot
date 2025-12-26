@@ -6,7 +6,7 @@ from keep_alive import keep_alive
 keep_alive()
 
 cl = Client()
-cl.login_by_sessionid("62606549169%3A4pcO6RgJXyYdwV%3A23%3AAYi5NYIT5_Uq13HxvLJKHmVv-B3Lzrj7sV4SjXFnsg")  # 🔐 Apna session ID daalo
+cl.login_by_sessionid("79069006978%3AqgJhNT5cCtMKV7%3A25%3AAYicCdIZoR-44Bp93j4IknRPea5fEV3xvXVdPTuF8Q")  # 🔐 Apna session ID daalo
 
 me_id = cl.user_id
 my_username = cl.username
@@ -48,7 +48,7 @@ def auto_send():  # 👈 ab ye auto-send hai, reply nahi
             print(f"📤 Sent auto message: {msg}")
 
             # Random delay (change if you want faster/slower)
-            time.sleep(random.randint(60, 100))
+            time.sleep(random.randint(30, 60))
 
         except Exception as err:
             print(f"⚠️ Error: {err}")
